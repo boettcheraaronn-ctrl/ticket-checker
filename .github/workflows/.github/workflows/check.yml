@@ -1,0 +1,21 @@
+name: Ticket Checker
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"  # every 10 minutes
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Ticketmaster page
+        run: |
+          curl -s "https://www.ticketmaster.ca/noah-kahan-the-great-divide-tour-vancouver-british-columbia-08-28-2026/event/1100643DA3BF7B99" > page.html
+
+          if grep -q "We’re All In" page.html; then
+            echo "TICKETS AVAILABLE"
+          else
+            echo "Still sold out"
+          fi
