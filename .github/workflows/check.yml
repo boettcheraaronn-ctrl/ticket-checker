@@ -17,8 +17,8 @@ jobs:
           echo "$PAGE" > page.html
 
           if ! grep -qi "tickets are sold out now" page.html; then
-            curl -s "https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage" \
-              -d chat_id=YOUR_CHAT_ID \
+            curl -s "https://api.telegram.org/bot8938346563:AAHjG2Z5LQGiV59HoB7wf5Lb12h0tYbEL90/sendMessage" \
+              -d chat_id=8612489860 \
               -d text="🎟 Noah Kahan tickets may be AVAILABLE — check now!"
           else
             echo "Still sold out"
